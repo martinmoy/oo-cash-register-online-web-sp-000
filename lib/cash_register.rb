@@ -8,9 +8,14 @@ class CashRegister
   end
 
   def add_item(item, price, quantity = 1)
-    @items << item
     @last_transaction = price * quantity
     @total = @total + @last_transaction
+    i = quantity
+    until i == 0 do
+      @items << item
+      i -= 1
+    end
+
   end
 
   def apply_discount
